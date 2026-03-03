@@ -318,7 +318,7 @@ const openModal = (type, onSave) => {
   });
 
   const handler = (event) => {
-    if (event.target.value !== "confirm") {
+    if (event.target.returnValue !== "confirm") {
       ui.modal.removeEventListener("close", handler);
       return;
     }
