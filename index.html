@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Deal OS MVP</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div>
+        <h1>Deal OS MVP</h1>
+        <p>Turn every customer interaction into a governed proof plan and exec-ready deal package.</p>
+      </div>
+      <div class="header-actions">
+        <button id="new-deal">New Deal</button>
+        <button id="export-data">Export JSON</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel" id="deal-home">
+        <div class="panel-header">
+          <h2>Deal Home</h2>
+          <span class="badge" id="active-deal">No deal selected</span>
+        </div>
+        <div class="grid two">
+          <div>
+            <label for="deal-name">Deal name</label>
+            <input id="deal-name" placeholder="Acme Global - Expansion" />
+          </div>
+          <div>
+            <label for="deal-stage">Stage</label>
+            <select id="deal-stage">
+              <option>Discovery</option>
+              <option>Evaluation</option>
+              <option>Business Case</option>
+              <option>Procurement</option>
+              <option>Closed Won</option>
+            </select>
+          </div>
+          <div>
+            <label for="next-meeting">Next meeting</label>
+            <input id="next-meeting" type="date" />
+          </div>
+          <div>
+            <label for="next-actions">Next best actions</label>
+            <textarea id="next-actions" rows="3" placeholder="Top 3 moves for this deal"></textarea>
+          </div>
+        </div>
+        <div class="grid two">
+          <div>
+            <label for="top-risks">Top risks</label>
+            <textarea id="top-risks" rows="4" placeholder="Risk log summary"></textarea>
+          </div>
+          <div>
+            <label for="proof-gaps">Proof gaps</label>
+            <textarea id="proof-gaps" rows="4" placeholder="Evidence gaps blocking decision"></textarea>
+          </div>
+        </div>
+        <button id="save-deal" class="primary">Save Deal</button>
+      </section>
+
+      <section class="panel" id="proof-dashboard">
+        <div class="panel-header">
+          <h2>Proof Dashboard</h2>
+          <button id="add-proof" class="ghost">Add proof item</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Criteria</th>
+              <th>Evidence</th>
+              <th>Owner</th>
+              <th>Status</th>
+              <th>Due</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="proof-rows"></tbody>
+        </table>
+      </section>
+
+      <section class="panel" id="stakeholder-map">
+        <div class="panel-header">
+          <h2>Stakeholder Map</h2>
+          <button id="add-stakeholder" class="ghost">Add stakeholder</button>
+        </div>
+        <div class="cards" id="stakeholder-cards"></div>
+      </section>
+
+      <section class="panel" id="artefacts">
+        <div class="panel-header">
+          <h2>Artefacts</h2>
+          <button id="add-artefact" class="ghost">Add artefact</button>
+        </div>
+        <div class="cards" id="artefact-cards"></div>
+      </section>
+
+      <section class="panel" id="timeline">
+        <div class="panel-header">
+          <h2>Timeline</h2>
+          <button id="add-event" class="ghost">Add event</button>
+        </div>
+        <ul class="timeline" id="timeline-list"></ul>
+      </section>
+
+      <section class="panel" id="action-digest">
+        <div class="panel-header">
+          <h2>Daily Action Items Digest</h2>
+          <button id="add-task" class="ghost">Add action</button>
+        </div>
+        <ul class="tasks" id="task-list"></ul>
+      </section>
+    </main>
+
+    <dialog id="modal">
+      <form method="dialog" id="modal-form">
+        <h3 id="modal-title"></h3>
+        <div id="modal-fields" class="grid two"></div>
+        <div class="modal-actions">
+          <button value="cancel">Cancel</button>
+          <button value="confirm" class="primary" id="modal-submit">Save</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>
